@@ -136,17 +136,14 @@ engineBtn.addEventListener("click",function(){
 
 });
 
-// ==========================
 // 이벤트 연결
-// ==========================
 
 temperature.addEventListener("input",updateDisplay);
 
 catalyst.addEventListener("change",updateDisplay);
 
-// ==========================
+
 // 첫 실행
-// ==========================
 
 updateDisplay();
 
