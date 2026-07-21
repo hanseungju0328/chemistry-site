@@ -394,3 +394,9 @@ updateDisplay = function(){
 // ==========================
 
 updateDisplay();
+
+window.onload = function(){
+
+    updateGraph();
+
+};
