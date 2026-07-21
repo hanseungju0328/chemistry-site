@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CatalystX | 3원 촉매 시뮬레이터</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<header class="hero">
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            CatalystX
+
+        </div>
+
+        <ul>
+
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">SIMULATION</a></li>
+            <li><a href="#">THEORY</a></li>
+            <li><a href="#">ABOUT</a></li>
+
+        </ul>
+
+    </nav>
+
+    <div class="heroContent">
+
+        <h1>
+
+            자동차 배기가스<br>
+            3원 촉매 반응 시뮬레이터
+
+        </h1>
+
+        <p>
+
+            Arrhenius Equation를 이용하여
+            반응속도와 촉매 효과를 실시간으로 시각화합니다.
+
+        </p>
+
+        <button id="startButton">
+
+            시뮬레이션 시작
+
+        </button>
+
+    </div>
+
+</header>
+
+<section class="simulationSection">
+
+    <div class="leftPanel">
+
+        <div class="card">
+
+            <h2>🚗 엔진</h2>
+
+            <button id="engineBtn">
+
+                ENGINE START
+
+            </button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>🌡 배기 온도</h2>
+
+            <input
+                id="temperature"
+                type="range"
+                min="200"
+                max="900"
+                value="500">
+
+            <p>
+
+                <span id="tempValue">
+
+                    500
+
+                </span>
+
+                ℃
+
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <h2>🧪 촉매</h2>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="catalyst">
+
+                <span class="slider"></span>
+
+            </label>
+
+            <p id="catalystState">
+
+                OFF
+
+            </p>
+
+        </div>
+
+    <div class="centerPanel">
+
+        <div class="carContainer">
+
+            <div class="car">
+
+                🚗
+
+            </div>
+
+            <div id="smoke">
+
+                💨💨💨
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="rightPanel">
+
+        <div class="card">
+
+            <h2>반응속도 상수</h2>
+
+            <h3 id="kValue">
+
+                k = 0.0000
+
+            </h3>
+
+        </div>
+
+        <div class="card">
+
+            <h2>활성화 에너지</h2>
+
+            <h3 id="eaValue">
+
+                120 kJ/mol
+
+            </h3>
+
+        </div>
+
+        <div class="card">
+
+            <h2>상태</h2>
+
+            <h3 id="status">
+
+                대기 중
+
+            </h3>
+
+        </div>
+
+        <div class="card">
+
+            <h2>현재 조건</h2>
+
+            <table class="infoTable">
+
+                <tr>
+
+                    <td>온도</td>
+
+                    <td id="temperatureDisplay">
+
+                        500 ℃
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>촉매</td>
+
+                    <td id="catalystDisplay">
+
+                        OFF
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>반응속도</td>
+
+                    <td id="speedDisplay">
+
+                        매우 느림
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+    <td>정화효율</td>
+
+    <td id="efficiency">
+
+        0%
+
+    </td>
+
+</tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="graphSection">
+
+    <div class="graphCard">
+
+        <h2>
+
+            📈 유해가스 농도 변화
+
+        </h2>
+
+        <canvas id="gasChart"></canvas>
+
+    </div>
+
+</section>
+
+<section class="equationSection">
+
+    <div class="equationCard">
+
+        <h2>
+
+            Arrhenius Equation
+
+        </h2>
+
+        <div class="equation">
+
+            k = A · e<sup>-Ea / RT</sup>
+
+        </div>
+
+        <p>
+
+            촉매는 활성화에너지(Ea)를 낮춰
+            반응속도상수(k)를 증가시킵니다.
+
+        </p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <div class="footerContainer">
+
+        <h2>CatalystX</h2>
+
+        <p>
+
+            Chemistry II × Mechanical Engineering
+
+        </p>
+
+        <p>
+
+            자동차 배기가스 3원 촉매 반응 시뮬레이터
+
+        </p>
+
+        <hr>
+
+        <p>
+
+            © 2026 CatalystX Project
+
+        </p>
+
+    </div>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

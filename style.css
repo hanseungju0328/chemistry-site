@@ -1,0 +1,707 @@
+/* ==========================
+   CatalystX
+   style.css
+   Part 1
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:'Pretendard',sans-serif;
+
+    background:
+    radial-gradient(circle at top,#243b55,#141e30 70%);
+
+    color:white;
+
+    min-height:100vh;
+
+}
+
+/* ==========================
+   HERO
+========================== */
+
+.hero{
+
+    width:100%;
+
+    padding:40px 8%;
+
+}
+
+.navbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:80px;
+
+}
+
+.logo{
+
+    font-size:34px;
+
+    font-weight:700;
+
+    color:#4fc3ff;
+
+    letter-spacing:2px;
+
+}
+
+.navbar ul{
+
+    display:flex;
+
+    gap:35px;
+
+    list-style:none;
+
+}
+
+.navbar a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:500;
+
+    transition:.3s;
+
+}
+
+.navbar a:hover{
+
+    color:#4fc3ff;
+
+}
+
+.heroContent{
+
+    text-align:center;
+
+}
+
+.heroContent h1{
+
+    font-size:60px;
+
+    line-height:1.3;
+
+    margin-bottom:25px;
+
+}
+
+.heroContent p{
+
+    font-size:20px;
+
+    opacity:.85;
+
+    margin-bottom:40px;
+
+}
+
+#startButton{
+
+    padding:18px 40px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#4fc3ff;
+
+    color:white;
+
+    font-size:18px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#startButton:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 0 25px #4fc3ff;
+
+}
+
+/* ==========================
+   SIMULATION
+========================== */
+
+.simulationSection{
+
+    width:90%;
+
+    margin:80px auto;
+
+    display:grid;
+
+    grid-template-columns:320px 1fr 320px;
+
+    gap:35px;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:20px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+    box-shadow:
+
+    0 8px 25px rgba(0,0,0,.25);
+
+}
+
+.card h2{
+
+    margin-bottom:20px;
+
+    color:#4fc3ff;
+
+}
+
+/* ==========================
+   LEFT PANEL
+========================== */
+
+.leftPanel,
+.rightPanel{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.card p{
+
+    margin-top:15px;
+
+    font-size:18px;
+
+}
+
+input[type="range"]{
+
+    width:100%;
+
+    margin-top:20px;
+
+    cursor:pointer;
+
+    accent-color:#4fc3ff;
+
+}
+
+#engineBtn{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#4fc3ff;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+#engineBtn:hover{
+
+    transform:scale(1.03);
+
+    box-shadow:0 0 25px #4fc3ff;
+
+}
+
+/* ==========================
+   SWITCH
+========================== */
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:70px;
+
+    height:36px;
+
+}
+
+.switch input{
+
+    display:none;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    background:#555;
+
+    border-radius:50px;
+
+    transition:.3s;
+
+}
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:28px;
+
+    height:28px;
+
+    left:4px;
+
+    top:4px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transition:.3s;
+
+}
+
+.switch input:checked + .slider{
+
+    background:#4fc3ff;
+
+}
+
+.switch input:checked + .slider::before{
+
+    transform:translateX(34px);
+
+}
+
+/* ==========================
+   CENTER PANEL
+========================== */
+
+.centerPanel{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+.carContainer{
+
+    width:100%;
+
+    min-height:420px;
+
+    border-radius:25px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.car{
+
+    font-size:120px;
+
+    animation:carMove 2.5s infinite ease-in-out;
+
+}
+
+#smoke{
+
+    font-size:45px;
+
+    margin-top:20px;
+
+    opacity:.7;
+
+    animation:smoke 1.8s infinite alternate;
+
+}
+
+/* ==========================
+   ANIMATION
+========================== */
+
+@keyframes carMove{
+
+    0%{
+
+        transform:translateX(-10px);
+
+    }
+
+    50%{
+
+        transform:translateX(10px);
+
+    }
+
+    100%{
+
+        transform:translateX(-10px);
+
+    }
+
+}
+
+@keyframes smoke{
+
+    from{
+
+        transform:translateY(0);
+
+        opacity:.4;
+
+    }
+
+    to{
+
+        transform:translateY(-15px);
+
+        opacity:1;
+
+    }
+
+}
+
+/* ==========================
+   GRAPH SECTION
+========================== */
+
+.graphSection{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.graphCard{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+.graphCard h2{
+
+    color:#4fc3ff;
+
+    margin-bottom:25px;
+
+}
+
+canvas{
+
+    width:100% !important;
+
+    max-height:420px;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:15px;
+
+}
+
+/* ==========================
+   EQUATION SECTION
+========================== */
+
+.equationSection{
+
+    width:90%;
+
+    margin:80px auto;
+
+}
+
+.equationCard{
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.15);
+
+    border-radius:25px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.25);
+
+}
+
+.equationCard h2{
+
+    color:#4fc3ff;
+
+    margin-bottom:20px;
+
+}
+
+.equation{
+
+    font-size:42px;
+
+    font-weight:700;
+
+    margin:25px 0;
+
+    color:#ffffff;
+
+}
+
+.equationCard p{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+    opacity:.9;
+
+}
+
+/* ==========================
+   INFO TABLE
+========================== */
+
+.infoTable{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.infoTable td{
+
+    padding:12px 0;
+
+    border-bottom:1px solid rgba(255,255,255,.15);
+
+}
+
+.infoTable td:first-child{
+
+    color:#4fc3ff;
+
+    font-weight:600;
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+footer{
+
+    margin-top:80px;
+
+    padding:50px 20px;
+
+    text-align:center;
+
+    background:rgba(0,0,0,.25);
+
+}
+
+.footerContainer h2{
+
+    color:#4fc3ff;
+
+    margin-bottom:10px;
+
+}
+
+.footerContainer p{
+
+    margin:8px 0;
+
+    opacity:.8;
+
+}
+
+.footerContainer hr{
+
+    width:250px;
+
+    margin:25px auto;
+
+    border:none;
+
+    border-top:1px solid rgba(255,255,255,.2);
+
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media(max-width:1100px){
+
+    .simulationSection{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .heroContent h1{
+
+        font-size:42px;
+
+    }
+
+    .navbar{
+
+        flex-direction:column;
+
+        gap:25px;
+
+    }
+
+    .navbar ul{
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+        gap:20px;
+
+    }
+
+    .car{
+
+        font-size:90px;
+
+    }
+
+}
+
+@media(max-width:700px){
+
+    .hero{
+
+        padding:30px 5%;
+
+    }
+
+    .heroContent h1{
+
+        font-size:32px;
+
+    }
+
+    .heroContent p{
+
+        font-size:16px;
+
+    }
+
+    .card{
+
+        padding:18px;
+
+    }
+
+    .equation{
+
+        font-size:28px;
+
+    }
+
+    #startButton{
+
+        width:100%;
+
+    }
+
+}
