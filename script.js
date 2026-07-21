@@ -351,17 +351,40 @@ function updateEfficiency(){
 
     const temp = Number(temperature.value);
 
-    let efficiency = 0;
+    let efficiency;
+
 
     if(catalyst.checked){
 
-        efficiency = Math.min(99,Math.round((temp-200)/7));
+        efficiency = Math.round(
+            50 + (temp - 200) * 0.07
+        );
+
+    }else{
+
+        efficiency = Math.round(
+            (temp - 200) * 0.02
+        );
 
     }
 
-    efficiency = Math.max(0,efficiency);
+
+    if(efficiency > 99){
+
+        efficiency = 99;
+
+    }
+
+
+    if(efficiency < 0){
+
+        efficiency = 0;
+
+    }
+
 
     const efficiencyElement = document.getElementById("efficiency");
+
 
     if(efficiencyElement){
 
